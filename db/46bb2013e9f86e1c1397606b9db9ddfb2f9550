@@ -1,0 +1,21 @@
+docs/superpowers/plans/2026-07-14-desktop-cockroach.md
+  s_c30374aacd8e58::t_142e6a22a49497 1-1399
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "db46bb2013e9f86e1c1397606b9db9ddfb2f9550",
+  "prompts": {},
+  "sessions": {
+    "s_c30374aacd8e58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f96750f-50d9-4e9a-a56f-f5362acfa6c5",
+        "model": "unknown"
+      },
+      "human_author": "wang.gsjt <wang.gsjt@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
