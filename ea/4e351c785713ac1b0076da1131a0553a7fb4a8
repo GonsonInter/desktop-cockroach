@@ -1,0 +1,37 @@
+src/main/index.ts
+  s_c30374aacd8e58::t_df89d587977ae8 38-68
+src/main/window.ts
+  s_c30374aacd8e58::t_3cf63fca97ced1 38
+src/preload/index.ts
+  s_c30374aacd8e58::t_a7331cb6297b86 10-15
+src/renderer/runtime/hole.css
+  s_c30374aacd8e58::t_00d917cb487b1c 17-21
+src/renderer/runtime/hole.ts
+  s_c30374aacd8e58::t_0293ef7d5e11fc 1,3,6-13,19-27,30,39-43,49-52,76-81,88
+src/renderer/runtime/index.html
+  s_c30374aacd8e58::t_3b646d84f6a920 8
+src/renderer/runtime/main.ts
+  s_c30374aacd8e58::t_15adf9109568d6 2,5,15-18,28-29,35,37-38,40-41,43-44,46-49,51-75,77-94,100,104,108,111,118,126-134
+src/renderer/runtime/swat.css
+  s_c30374aacd8e58::t_34de65e89cdca1 1-22
+src/renderer/runtime/swat.ts
+  s_c30374aacd8e58::t_8f80adf8948bd2 1-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ea4e351c785713ac1b0076da1131a0553a7fb4a8",
+  "prompts": {},
+  "sessions": {
+    "s_c30374aacd8e58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f96750f-50d9-4e9a-a56f-f5362acfa6c5",
+        "model": "unknown"
+      },
+      "human_author": "wang.gsjt <wang.gsjt@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
