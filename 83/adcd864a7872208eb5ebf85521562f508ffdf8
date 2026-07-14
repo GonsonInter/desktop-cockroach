@@ -1,0 +1,37 @@
+src/core/kinematics.ts
+  s_c30374aacd8e58::t_2db1bf3261536d 10-11,28-33,45-51,60,66-67,71,73,76,80,83,86,92-93,95-96,99,103-118,127-128
+src/main/index.ts
+  s_c30374aacd8e58::t_3e3ca2e8a8447a 2,5-7,10-15,18,21-22,24-37
+src/main/window.ts
+  s_c30374aacd8e58::t_d675929c6ad8f0 4-25,27-30,48
+src/preload/index.ts
+  s_c30374aacd8e58::t_2d161809c10a08 6-9
+src/renderer/runtime/cockroach.ts
+  s_c30374aacd8e58::t_b9d1af42606d50 65-66,68-82
+src/renderer/runtime/hole.ts
+  s_c30374aacd8e58::t_204f1f7077cd65 15
+src/renderer/runtime/main.ts
+  s_c30374aacd8e58::t_d76791cae9b457 1,4,11-13,19,22-27,29-38,41-65,67-73,75
+src/renderer/runtime/roach.css
+  s_c30374aacd8e58::t_177b3bb85bce52 11-15,44,50,53-60,70,73,75-77
+src/renderer/runtime/stage.ts
+  s_c30374aacd8e58::t_c14cde82432575 2,7-15,20,29-33,37-47,55,59-63,69,73-78,88-89,97-106,113-115,118,120-122
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "83adcd864a7872208eb5ebf85521562f508ffdf8",
+  "prompts": {},
+  "sessions": {
+    "s_c30374aacd8e58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f96750f-50d9-4e9a-a56f-f5362acfa6c5",
+        "model": "unknown"
+      },
+      "human_author": "wang.gsjt <wang.gsjt@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
