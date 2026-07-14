@@ -1,6 +1,6 @@
 {
   "name": "desktop-cockroach",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "桌面蟑螂 - 点墙洞钻出蟑螂满屏爬",
   "author": "GonsonInter",
   "main": "out/main/index.js",

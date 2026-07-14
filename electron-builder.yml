@@ -6,7 +6,11 @@ files:
   - out/**/*
   - package.json
 mac:
-  target: dmg
+  target:
+    - target: dmg
+      arch:
+        - arm64
+        - x64
   category: public.app-category.entertainment
 win:
   target: nsis
