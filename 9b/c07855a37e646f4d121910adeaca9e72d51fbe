@@ -1,0 +1,23 @@
+.gitignore
+  s_c30374aacd8e58::t_5ee6badf9ac797 1-5
+docs/superpowers/specs/2026-07-14-desktop-cockroach-design.md
+  s_c30374aacd8e58::t_018db420a36c15 1-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "9bc07855a37e646f4d121910adeaca9e72d51fbe",
+  "prompts": {},
+  "sessions": {
+    "s_c30374aacd8e58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f96750f-50d9-4e9a-a56f-f5362acfa6c5",
+        "model": "unknown"
+      },
+      "human_author": "wang.gsjt <wang.gsjt@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
