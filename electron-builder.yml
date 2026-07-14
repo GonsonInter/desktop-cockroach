@@ -1,0 +1,15 @@
+appId: com.gonson.desktopcockroach
+productName: DesktopCockroach
+directories:
+  output: release
+files:
+  - out/**/*
+  - package.json
+mac:
+  target: dmg
+  category: public.app-category.entertainment
+win:
+  target: nsis
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
