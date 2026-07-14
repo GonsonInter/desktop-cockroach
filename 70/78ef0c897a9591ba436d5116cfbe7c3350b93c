@@ -1,0 +1,27 @@
+src/main/index.ts
+  s_c30374aacd8e58::t_9124c238944f9b 19-20
+src/main/tray.ts
+  s_c30374aacd8e58::t_8c9e2bfdff0642 3-7,10-18,20-33
+src/preload/index.ts
+  s_c30374aacd8e58::t_817dcc19c8cfe4 16-19
+src/renderer/runtime/main.ts
+  s_c30374aacd8e58::t_c5710d9c9baffc 19,78-114
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "7078ef0c897a9591ba436d5116cfbe7c3350b93c",
+  "prompts": {},
+  "sessions": {
+    "s_c30374aacd8e58": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f96750f-50d9-4e9a-a56f-f5362acfa6c5",
+        "model": "unknown"
+      },
+      "human_author": "wang.gsjt <wang.gsjt@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
