@@ -1,0 +1,83 @@
+.roach {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 68px;
+  height: 40px;
+  margin-left: -34px; /* 让 transform 定位以中心为基准 */
+  margin-top: -20px;
+  will-change: transform;
+  pointer-events: none;
+  overflow: visible;
+}
+/* 允许翅膀放大/开合时超出 viewBox 显示，避免被方形裁切 */
+.roach svg {
+  overflow: visible;
+}
+
+/* 腿：每条 g 绕根部（靠身体端）摆动 */
+.roach .leg {
+  transform-box: fill-box;
+  animation: roach-legs 0.16s linear infinite;
+}
+.roach .leg.up { transform-origin: 50% 100%; }   /* 上排腿根在下（靠中线） */
+.roach .leg.down { transform-origin: 50% 0%; }    /* 下排腿根在上（靠中线） */
+.roach .leg.l2 { animation-delay: 0.08s; }        /* 三角步态：反相组 */
+@keyframes roach-legs {
+  0%   { transform: rotate(-14deg); }
+  50%  { transform: rotate(14deg); }
+  100% { transform: rotate(-14deg); }
+}
+
+/* 触须：绕头端摆动 */
+.roach .antenna {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  animation: roach-antenna 0.5s ease-in-out infinite alternate;
+}
+.roach .antenna.a2 { animation-delay: -0.25s; } /* 反相，两须错开 */
+@keyframes roach-antenna {
+  from { transform: rotate(-6deg); }
+  to   { transform: rotate(8deg); }
+}
+
+/* 飞行翅膀：放射扇叶组，默认收拢隐藏 */
+.roach .wings {
+  transform-box: fill-box;
+  transform-origin: 90% 50%; /* 从胸根展开 */
+  opacity: 0;
+  transform: scaleX(0.08);
+  transition: opacity 0.12s, transform 0.12s;
+}
+
+/* ── 停顿：腿缓慢小幅摆动（转头/发呆时脚也轻微动），触须大幅摆动 ── */
+.roach.paused .leg {
+  animation: roach-legs-idle 0.5s ease-in-out infinite alternate;
+}
+@keyframes roach-legs-idle {
+  from { transform: rotate(-5deg); }
+  to   { transform: rotate(5deg); }
+}
+.roach.paused .antenna { animation-name: roach-antenna-big; animation-duration: 0.34s; }
+@keyframes roach-antenna-big {
+  from { transform: rotate(-20deg); }
+  to   { transform: rotate(22deg); }
+}
+
+/* ── 飞行：张翅煽动、收腿、离地投影 ── */
+.roach.flying { filter: drop-shadow(0 7px 6px rgba(0, 0, 0, 0.4)); }
+.roach.flying .leg { animation-play-state: paused; }
+/* 飞行：整簇扇叶从翅根张开，轻微上下拍（scaleY 小幅，无 z 轴旋转） */
+.roach.flying .wings {
+  opacity: 0.82;
+  animation: wing-fan 0.12s ease-in-out infinite alternate;
+}
+@keyframes wing-fan {
+  from { transform: scaleX(0.95) scaleY(1.35); } /* scaleX 收短，scaleY 展宽 */
+  to   { transform: scaleX(1.0) scaleY(1.7); }   /* 拍动时展得更宽 */
+}
+
+.roach.dying { animation: roach-squash 0.12s forwards; }
+@keyframes roach-squash {
+  to { transform: var(--squash) scaleY(0.3); filter: brightness(0.6); }
+}

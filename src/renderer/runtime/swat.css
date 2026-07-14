@@ -1,0 +1,22 @@
+/* 跟随鼠标的苍蝇拍：默认抬起蓄势，点击时向下拍。
+   绕拍面中心(打击点)旋转 → 拍面中心始终对准鼠标点，抬起/拍下的是拍柄。 */
+.swatter-cursor {
+  position: fixed;
+  width: 60px;
+  height: 43px;
+  margin-left: -46px; /* 拍面中心对准鼠标点 */
+  margin-top: -14px;
+  transform-origin: 46px 14px; /* 拍面中心=打击点=鼠标点 */
+  pointer-events: none;
+  z-index: 9999;
+  transform: rotate(-26deg); /* 抬起蓄势（拍柄翘起，拍面不动） */
+}
+.swatter-cursor.swat {
+  animation: swat-down 0.18s ease-out;
+}
+@keyframes swat-down {
+  0%   { transform: rotate(-26deg) translateY(0); }   /* 抬起 */
+  45%  { transform: rotate(4deg) translateY(3px); }    /* 拍到底（略下沉） */
+  60%  { transform: rotate(-5deg) translateY(0); }     /* 小回弹 */
+  100% { transform: rotate(-26deg) translateY(0); }    /* 回到抬起 */
+}

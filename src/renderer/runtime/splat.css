@@ -1,0 +1,66 @@
+/* 全屏白闪 */
+.splat-flash {
+  position: fixed;
+  inset: 0;
+  background: #fff;
+  pointer-events: none;
+  opacity: 0;
+  animation: splat-flash 0.14s ease-out forwards;
+}
+@keyframes splat-flash {
+  0% { opacity: 0.5; }
+  100% { opacity: 0; }
+}
+
+/* 画面震动（挂在 #stage 上，整屏抖动） */
+#stage.shake { animation: stage-shake 0.32s cubic-bezier(0.36, 0.07, 0.19, 0.97); }
+@keyframes stage-shake {
+  10%, 90% { transform: translate(-2px, 1px); }
+  20%, 80% { transform: translate(4px, -2px); }
+  30%, 50%, 70% { transform: translate(-6px, 3px); }
+  40%, 60% { transform: translate(6px, -2px); }
+}
+
+/* 双层冲击环 */
+.splat-ring {
+  position: fixed;
+  left: 0; top: 0;
+  width: 24px; height: 24px;
+  margin-left: -12px; margin-top: -12px;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.splat-ring.r1 {
+  border: 5px solid rgba(255, 240, 205, 0.95);
+  animation: splat-ring1 0.45s ease-out forwards;
+}
+@keyframes splat-ring1 {
+  from { transform: scale(0.2); opacity: 1; border-width: 6px; }
+  to   { transform: scale(4.6); opacity: 0; border-width: 1px; }
+}
+.splat-ring.r2 {
+  border: 3px solid rgba(180, 120, 70, 0.9);
+  animation: splat-ring2 0.55s 0.05s ease-out forwards;
+}
+@keyframes splat-ring2 {
+  from { transform: scale(0.2); opacity: 0.85; }
+  to   { transform: scale(6.4); opacity: 0; }
+}
+
+/* 碎片四射 */
+.splat-bit {
+  position: fixed;
+  left: 0; top: 0;
+  width: 6px; height: 6px;
+  margin-left: -3px; margin-top: -3px;
+  background: #3a2418;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: splat-bit 0.5s ease-out forwards;
+}
+@keyframes splat-bit {
+  from { transform: translate(0, 0) scale(1); opacity: 1; }
+  to   { transform: translate(var(--dx), var(--dy)) scale(0.4); opacity: 0; }
+}
+
+.roach.fade { transition: opacity 0.28s ease-out; opacity: 0; }

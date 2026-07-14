@@ -1,0 +1,28 @@
+.hole {
+  position: fixed;
+  width: 109px;
+  height: 138px;
+  margin-left: -54px;
+  margin-top: -69px;
+  cursor: grab;
+  pointer-events: auto;
+}
+.hole img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+/* 跨屏拖动时的墙洞虚影：不可交互 */
+.hole.ghost {
+  pointer-events: none;
+  cursor: default;
+}
+.hole.dragging { cursor: grabbing; }
+.hole.full { animation: hole-shake 0.3s; }
+@keyframes hole-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
