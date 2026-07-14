@@ -2,6 +2,7 @@
   "name": "desktop-cockroach",
   "version": "0.1.0",
   "description": "桌面蟑螂 - 点墙洞钻出蟑螂满屏爬",
+  "author": "GonsonInter",
   "main": "out/main/index.js",
   "type": "module",
   "scripts": {
@@ -10,8 +11,8 @@
     "start": "electron-vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "pack:mac": "electron-vite build && electron-builder --mac",
-    "pack:win": "electron-vite build && electron-builder --win"
+    "pack:mac": "electron-vite build && electron-builder --mac --publish never",
+    "pack:win": "electron-vite build && electron-builder --win --publish never"
   },
   "devDependencies": {
     "@types/node": "^25.9.2",
