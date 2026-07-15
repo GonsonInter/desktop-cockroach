@@ -19,7 +19,9 @@ jobs:
             artifact: release/*.dmg
           - os: windows-latest
             script: pack:win
-            artifact: release/*.exe
+            artifact: |
+              release/*.exe
+              release/*.zip
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4

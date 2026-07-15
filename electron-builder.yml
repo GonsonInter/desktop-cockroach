@@ -13,7 +13,9 @@ mac:
         - x64
   category: public.app-category.entertainment
 win:
-  target: nsis
+  target:
+    - nsis
+    - zip
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
