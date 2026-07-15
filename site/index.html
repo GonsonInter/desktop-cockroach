@@ -3,144 +3,133 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>桌面蟑螂 Desktop Cockroach 🪳</title>
-    <meta name="description" content="macOS/Windows 桌面小玩具：点墙洞钻出会爬/停/飞的蟑螂，跨屏乱窜，鼠标变苍蝇拍拍死。" />
+    <title>桌面蟑螂</title>
+    <meta name="description" content="一只住在你屏幕里的赛博小强。点墙洞钻出来，满屏乱爬，还会飞。" />
     <style>
       :root {
-        --bg: #14100c;
-        --bg2: #1e1712;
-        --card: #241a12;
-        --text: #f0e6d8;
-        --muted: #b09a82;
-        --accent: #c9772f;
-        --accent2: #8a4a1e;
-        --border: #3a2c20;
+        --bg: #f4efe6;
+        --ink: #2a2018;
+        --soft: #6f6152;
+        --line: #d9cdb9;
+        --rust: #b5601c;
+        --paper: #fbf7f0;
       }
-      @media (prefers-color-scheme: light) {
+      @media (prefers-color-scheme: dark) {
         :root {
-          --bg: #f7f1e8;
-          --bg2: #efe6d8;
-          --card: #fffaf2;
-          --text: #2c1d12;
-          --muted: #7a6650;
-          --accent: #b5601c;
-          --accent2: #8a4a1e;
-          --border: #e3d5c2;
+          --bg: #17130f;
+          --ink: #ece2d4;
+          --soft: #9c8a76;
+          --line: #352a20;
+          --rust: #d98a45;
+          --paper: #1f1913;
         }
       }
       * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
       body {
         margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-        background: radial-gradient(1200px 600px at 50% -10%, var(--bg2), var(--bg));
-        color: var(--text);
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.75 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', -apple-system, sans-serif;
       }
-      .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+      .col { max-width: 620px; margin: 0 auto; padding: 0 24px; }
 
-      /* Hero */
-      .hero { text-align: center; padding: 72px 20px 40px; }
-      .stage {
-        position: relative;
-        height: 90px;
-        margin: 0 auto 8px;
-        max-width: 520px;
-        overflow: visible;
-      }
-      .roach { position: absolute; top: 26px; left: 0; animation: crawl 9s linear infinite; }
+      /* 顶部：蟑螂在一条横线上爬 */
+      .top { padding: 64px 0 0; }
+      .shelf { position: relative; height: 52px; border-bottom: 1.5px solid var(--line); }
+      .roach { position: absolute; bottom: 6px; left: 0; animation: crawl 11s linear infinite; }
       @keyframes crawl {
-        0%   { transform: translateX(0) rotate(0deg); }
-        45%  { transform: translateX(440px) rotate(0deg); }
-        50%  { transform: translateX(440px) rotate(180deg); }
-        95%  { transform: translateX(0) rotate(180deg); }
+        0% { transform: translateX(0) rotate(0); }
+        46% { transform: translateX(500px) rotate(0); }
+        50% { transform: translateX(500px) rotate(180deg); }
+        96% { transform: translateX(0) rotate(180deg); }
         100% { transform: translateX(0) rotate(360deg); }
       }
-      .leg { transform-box: fill-box; transform-origin: center; animation: legs 0.16s linear infinite; }
-      .leg.l2 { animation-delay: 0.08s; }
+      .leg { transform-box: fill-box; transform-origin: center; animation: legs .16s linear infinite; }
+      .leg.l2 { animation-delay: .08s; }
       @keyframes legs { 0%{transform:rotate(-14deg)} 50%{transform:rotate(14deg)} 100%{transform:rotate(-14deg)} }
-      .antenna { transform-box: fill-box; transform-origin: 0% 50%; animation: ant 0.5s ease-in-out infinite alternate; }
+      .antenna { transform-box: fill-box; transform-origin: 0% 50%; animation: ant .5s ease-in-out infinite alternate; }
       @keyframes ant { from{transform:rotate(-6deg)} to{transform:rotate(8deg)} }
 
-      h1 { font-size: 2.6rem; margin: 8px 0 6px; letter-spacing: 1px; }
-      .tag { color: var(--muted); font-size: 1.15rem; margin: 0 0 28px; }
-
-      .btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
-      .btn {
-        display: inline-flex; align-items: center; gap: 8px;
-        padding: 12px 22px; border-radius: 12px; font-weight: 600; text-decoration: none;
-        background: linear-gradient(180deg, var(--accent), var(--accent2)); color: #fff;
-        box-shadow: 0 4px 14px rgba(0,0,0,.25); transition: transform .12s, box-shadow .12s;
+      h1 {
+        font: 700 clamp(2rem, 7vw, 3rem)/1.1 Georgia, 'Songti SC', serif;
+        margin: 34px 0 10px; letter-spacing: -.5px;
       }
-      .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.3); }
-      .btn.ghost { background: transparent; color: var(--text); border: 1px solid var(--border); box-shadow: none; }
+      .lede { font-size: 1.15rem; color: var(--soft); margin: 0 0 34px; max-width: 34ch; }
 
-      /* Features */
-      .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; padding: 24px 0 8px; }
-      .card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; }
-      .card .ic { font-size: 1.6rem; }
-      .card h3 { margin: 8px 0 6px; font-size: 1.1rem; }
-      .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+      p { margin: 0 0 18px; }
+      .rust { color: var(--rust); }
+      .body { padding: 8px 0 12px; }
+      .body h2 {
+        font: 600 .8rem/1 sans-serif; letter-spacing: .18em; text-transform: uppercase;
+        color: var(--soft); margin: 40px 0 14px;
+      }
 
-      .note { color: var(--muted); font-size: .9rem; text-align: center; margin: 28px auto 0; max-width: 640px; }
-      footer { text-align: center; color: var(--muted); padding: 40px 20px; font-size: .9rem; }
-      footer a { color: var(--accent); }
-      .sec-title { text-align: center; font-size: 1.4rem; margin: 40px 0 4px; }
+      /* 下载 */
+      .dl { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 8px; }
+      .dl a {
+        display: inline-flex; align-items: center; gap: 8px;
+        text-decoration: none; color: var(--ink);
+        border: 1.5px solid var(--ink); border-radius: 8px;
+        padding: 10px 16px; font-weight: 600; font-size: .95rem;
+        transition: background .12s, color .12s;
+      }
+      .dl a svg { display: block; }
+      .dl a:hover { background: var(--ink); color: var(--bg); }
+      .dl a.main { background: var(--rust); border-color: var(--rust); color: #fff; }
+      .dl a.main:hover { filter: brightness(1.08); }
+      .fine { font-size: .85rem; color: var(--soft); margin-top: 14px; }
+      .fine a { color: var(--rust); }
+
+      .end { border-top: 1.5px solid var(--line); margin-top: 48px; padding: 20px 0 60px; font-size: .85rem; color: var(--soft); }
+      .end a { color: var(--rust); }
     </style>
   </head>
   <body>
-    <div class="wrap">
-      <section class="hero">
-        <div class="stage">
-          <svg class="roach" width="68" height="40" viewBox="0 0 68 40" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="b" cx="62%" cy="40%" r="75%">
-                <stop offset="0%" stop-color="#9a4d1e" /><stop offset="45%" stop-color="#793914" /><stop offset="100%" stop-color="#4f2610" />
-              </radialGradient>
-              <radialGradient id="s" cx="58%" cy="34%" r="70%">
-                <stop offset="0%" stop-color="#b5762f" /><stop offset="100%" stop-color="#5a2c12" />
-              </radialGradient>
-            </defs>
-            <g stroke="#3d1d0a" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <path class="leg l1" d="M47 13 L51 7 L54 2" /><path class="leg l2" d="M40 12 L38 5 L33 1" /><path class="leg l1" d="M33 13 L25 6 L17 2" />
-              <path class="leg l2" d="M47 27 L51 33 L54 38" /><path class="leg l1" d="M40 28 L38 35 L33 39" /><path class="leg l2" d="M33 27 L25 34 L17 38" />
-            </g>
-            <g stroke="#4a2410" fill="none" stroke-width="1.4" stroke-linecap="round">
-              <path class="antenna" d="M57 17.5 Q64 12 67 5" /><path class="antenna" d="M57 22.5 Q64 28 67 35" />
-            </g>
-            <g stroke="#4a2410" stroke-width="1.4" stroke-linecap="round"><path d="M8 17 L2 12" /><path d="M8 23 L2 28" /></g>
-            <ellipse cx="24" cy="20" rx="18" ry="12" fill="url(#b)" stroke="#2c1608" stroke-width="0.8" />
-            <path d="M7 20 L42 20" stroke="#3a1c0c" opacity="0.55" stroke-width="0.8" />
-            <ellipse cx="20" cy="14" rx="11" ry="3.6" fill="#fff" opacity="0.16" />
-            <ellipse cx="45" cy="20" rx="8.5" ry="10.5" fill="url(#s)" stroke="#2c1608" stroke-width="0.8" />
-            <ellipse cx="45.5" cy="20" rx="4.6" ry="6.6" fill="#421d08" opacity="0.85" />
-            <ellipse cx="54" cy="20" rx="4" ry="5.2" fill="#3d1d0a" />
-            <circle cx="52.5" cy="15.6" r="1.9" fill="#140a05" /><circle cx="52.5" cy="24.4" r="1.9" fill="#140a05" />
-          </svg>
-        </div>
-        <h1>桌面蟑螂 🪳</h1>
-        <p class="tag">Desktop Cockroach — 你的桌面赛博小宠物</p>
-        <div class="btns">
-          <a class="btn" href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-win-x64.exe">🪟 Windows</a>
-          <a class="btn" href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-mac-x64.dmg">🍎 Mac · Intel 芯片</a>
-          <a class="btn" href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-mac-arm64.dmg">🍎 Mac · Apple 芯片</a>
-        </div>
-      </section>
+    <div class="col top">
+      <div class="shelf">
+        <svg class="roach" width="60" height="36" viewBox="0 0 68 40" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="b" cx="62%" cy="40%" r="75%"><stop offset="0%" stop-color="#9a4d1e"/><stop offset="45%" stop-color="#793914"/><stop offset="100%" stop-color="#4f2610"/></radialGradient>
+            <radialGradient id="s" cx="58%" cy="34%" r="70%"><stop offset="0%" stop-color="#b5762f"/><stop offset="100%" stop-color="#5a2c12"/></radialGradient>
+          </defs>
+          <g stroke="#3d1d0a" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path class="leg l1" d="M47 13 L51 7 L54 2"/><path class="leg l2" d="M40 12 L38 5 L33 1"/><path class="leg l1" d="M33 13 L25 6 L17 2"/>
+            <path class="leg l2" d="M47 27 L51 33 L54 38"/><path class="leg l1" d="M40 28 L38 35 L33 39"/><path class="leg l2" d="M33 27 L25 34 L17 38"/>
+          </g>
+          <g stroke="#4a2410" fill="none" stroke-width="1.4" stroke-linecap="round">
+            <path class="antenna" d="M57 17.5 Q64 12 67 5"/><path class="antenna" d="M57 22.5 Q64 28 67 35"/>
+          </g>
+          <g stroke="#4a2410" stroke-width="1.4" stroke-linecap="round"><path d="M8 17 L2 12"/><path d="M8 23 L2 28"/></g>
+          <ellipse cx="24" cy="20" rx="18" ry="12" fill="url(#b)" stroke="#2c1608" stroke-width="0.8"/>
+          <path d="M7 20 L42 20" stroke="#3a1c0c" opacity="0.55" stroke-width="0.8"/>
+          <ellipse cx="20" cy="14" rx="11" ry="3.6" fill="#fff" opacity="0.16"/>
+          <ellipse cx="45" cy="20" rx="8.5" ry="10.5" fill="url(#s)" stroke="#2c1608" stroke-width="0.8"/>
+          <ellipse cx="45.5" cy="20" rx="4.6" ry="6.6" fill="#421d08" opacity="0.85"/>
+          <ellipse cx="54" cy="20" rx="4" ry="5.2" fill="#3d1d0a"/>
+          <circle cx="52.5" cy="15.6" r="1.9" fill="#140a05"/><circle cx="52.5" cy="24.4" r="1.9" fill="#140a05"/>
+        </svg>
+      </div>
 
-      <h2 class="sec-title">它能干什么</h2>
-      <section class="features">
-        <div class="card"><div class="ic">🕳️</div><h3>点墙洞钻蟑螂</h3><p>桌面常驻一个逼真墙洞，点一下钻出一只，可反复点、可拖到任意位置（还能跨屏拖）。</p></div>
-        <div class="card"><div class="ic">🐜</div><h3>会爬 · 会停 · 会飞</h3><p>随机乱爬、平滑转向；偶尔停下发呆转头；小概率张开翅膀煽动着飞一段。</p></div>
-        <div class="card"><div class="ic">🖥️</div><h3>多屏乱窜</h3><p>透明覆盖层铺满所有显示器，蟑螂能从一块屏爬/飞到另一块屏。</p></div>
-        <div class="card"><div class="ic">🪰</div><h3>苍蝇拍拍死</h3><p>鼠标移到蟑螂上光标变苍蝇拍，抬起蓄势、点击向下拍，配打击特效。</p></div>
-        <div class="card"><div class="ic">⏱️</div><h3>产出方式可选</h3><p>菜单栏可选：点击产出 / 定时自动产出（间隔可调）/ 随机自动产出。</p></div>
-        <div class="card"><div class="ic">🫥</div><h3>不打扰</h3><p>平时鼠标穿透，不影响你正常使用其他软件；托盘一键清空 / 退出。</p></div>
-      </section>
+      <h1>桌面蟑螂</h1>
+      <p class="lede">一只住在你屏幕里的赛博小强。</p>
 
-      <p class="note">
-        支持 macOS（Apple Silicon / Intel）与 Windows。安装包未做代码签名，首次打开时
-        macOS 请右键「打开」，Windows 请点「更多信息 → 仍要运行」；Windows 若安装受阻可用免安装 zip 版。
-      </p>
+      <div class="body">
+        <p>桌面右下角有个洞。点它，钻出一只蟑螂，开始满屏乱爬——走走停停、晃晃触角，偶尔还张开翅膀飞一段。屏幕多的话，它能从这块屏窜到那块屏。</p>
+        <p>看烦了，鼠标挪过去，光标变成一把苍蝇拍，<span class="rust">啪</span>一下拍扁。平时它鼠标穿透，不挡你干正事；菜单栏里能设成手动点、定时冒、或者随机乱冒。</p>
+
+        <h2>下载</h2>
+        <div class="dl">
+          <a class="main" href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-win-x64.exe"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 21h16"/></svg>Windows</a>
+          <a href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-mac-arm64.dmg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 21h16"/></svg>macOS · Apple 芯片</a>
+          <a href="https://github.com/GonsonInter/desktop-cockroach/releases/latest/download/DesktopCockroach-mac-x64.dmg"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 21h16"/></svg>macOS · Intel 芯片</a>
+        </div>
+        <p class="fine">没签名，第一次打开：macOS 右键「打开」，Windows 点「更多信息 → 仍要运行」。Windows 装不上就用 <a href="https://github.com/GonsonInter/desktop-cockroach/releases/latest">免安装 zip</a>。</p>
+      </div>
+
+      <div class="end">
+        源码在 <a href="https://github.com/GonsonInter/desktop-cockroach">GitHub</a>。拿去吓室友，后果自负。
+      </div>
     </div>
   </body>
 </html>
