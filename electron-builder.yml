@@ -1,5 +1,6 @@
 appId: com.gonson.desktopcockroach
 productName: DesktopCockroach
+artifactName: ${productName}-${os}-${arch}.${ext} # 固定文件名（不带版本号），供 latest 直链
 directories:
   output: release
 files:
