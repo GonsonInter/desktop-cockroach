@@ -1,6 +1,10 @@
 appId: com.gonson.desktopcockroach
 productName: DesktopCockroach
 artifactName: ${productName}-${os}-${arch}.${ext} # 固定文件名（不带版本号），供 latest 直链
+compression: maximum # 更强压缩，减小安装包
+electronLanguages: # 只保留中英文语言包，删掉几十个用不到的
+  - en
+  - zh_CN
 directories:
   output: release
 files:
