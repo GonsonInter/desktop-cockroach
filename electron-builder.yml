@@ -7,6 +7,10 @@ files:
   - out/**/*
   - package.json
 mac:
+  identity: '-' # ad-hoc 自签名，避免 Apple Silicon 上「已损坏」误报
+  hardenedRuntime: true
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
   target:
     - target: dmg
       arch:
